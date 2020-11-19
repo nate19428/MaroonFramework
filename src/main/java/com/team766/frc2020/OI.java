@@ -3,7 +3,6 @@ package com.team766.frc2020;
 import com.team766.framework.Procedure;
 import com.team766.framework.Context;
 import com.team766.frc2020.Robot;
-import com.team766.frc2020.procedures.*;
 import com.team766.hal.JoystickReader;
 import com.team766.hal.RobotProvider;
 import com.team766.logging.Category;
@@ -27,11 +26,20 @@ public class OI extends Procedure {
 	
 	public void run(Context context) {
 		while (true) {
-			// Add driver controls here - make sure to take/release ownership
-			// of mechanisms when appropriate.
-			
+			log("J0 A0: " + m_joystick0.getAxis(0) +
+			    "  J0 A1: " + m_joystick0.getAxis(1) +
+			    "  J1 A0: " + m_joystick1.getAxis(0) +
+			    "  J1 A1: " + m_joystick1.getAxis(1) +
+			    "  J0 B1: " + m_joystick0.getButton(1) +
+			    "  J0 B2: " + m_joystick0.getButton(2) +
+			    "  J0 B3: " + m_joystick0.getButton(3));
 
-			context.waitFor(() -> RobotProvider.instance.hasNewDriverStationData());
-		}
-	}
+			while (RobotProvider.instance.hasNewDriverStationData() == true) {// Add driver controls here - make sure to take/release ownership
+			// of mechanisms when appropriate.
+			context.yield();
+			log("Heh");
+			//context.waitFor(() -> RobotProvider.instance.hasNewDriverStationData()); like a reepeat until block - repeats until RobotProvider = true
+			}
+		}// only one context can use CPU -evaluates stuff
+	}//wait for seconds notes down the time it is at right now and waits for timerightnow + seconds inputed; wait for does a while loop thing
 }
