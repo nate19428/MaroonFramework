@@ -25,6 +25,7 @@ public class OI extends Procedure {
 	}
 	
 	public void run(Context context) {
+		context.takeOwnership(Robot.drive);
 		while (true) {
 			log("J0 A0: " + m_joystick0.getAxis(0) +
 			    "  J0 A1: " + m_joystick0.getAxis(1) +
@@ -33,11 +34,11 @@ public class OI extends Procedure {
 			    "  J0 B1: " + m_joystick0.getButton(1) +
 			    "  J0 B2: " + m_joystick0.getButton(2) +
 			    "  J0 B3: " + m_joystick0.getButton(3));
-
-			while (RobotProvider.instance.hasNewDriverStationData() == true) {// Add driver controls here - make sure to take/release ownership
+			Robot.drive.setArcadeDrivePower(m_joystick0.getAxis(1), m_joystick0.getAxis(0));
+			Robot.launcher.setPusher(m_joystick0.getButton(2));
+			while (RobotProvider.instance.hasNewDriverStationData() == false) {// Add driver controls here - make sure to take/release ownership
 			// of mechanisms when appropriate.
 			context.yield();
-			log("Heh");
 			//context.waitFor(() -> RobotProvider.instance.hasNewDriverStationData()); like a reepeat until block - repeats until RobotProvider = true
 			}
 		}// only one context can use CPU -evaluates stuff
