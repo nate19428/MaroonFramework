@@ -26,6 +26,7 @@ public class OI extends Procedure {
 	
 	public void run(Context context) {
 		context.takeOwnership(Robot.drive);
+		context.takeOwnership(Robot.launcher);
 		while (true) {
 			log("J0 A0: " + m_joystick0.getAxis(0) +
 			    "  J0 A1: " + m_joystick0.getAxis(1) +

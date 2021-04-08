@@ -1,10 +1,14 @@
 package com.team766.frc2020.procedures;
 
-public class Launch {
+import com.team766.framework.Procedure;
+import com.team766.frc2020.Robot;
+import com.team766.framework.Context;
+
+public class Launch extends Procedure {
 	
-	public void run(){
+	public void run(Context context){
 		Robot.launcher.setPusher(true);
-		context.wait(0.25);
+		context.waitForSeconds(0.25);
 		Robot.launcher.setPusher(false);
 	}
 }
