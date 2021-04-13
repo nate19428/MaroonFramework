@@ -21,7 +21,7 @@ public class Robot extends MyRobot {
 	public static Drive drive;
 	public static OI m_oi;
 	public static Launcher launcher;
-	private static Intake intake;
+	public static Intake intake;
 	
 	private WebServer m_webServer;
 	private AutonomousSelector m_autonSelector;

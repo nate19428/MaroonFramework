@@ -22,4 +22,12 @@ public class Intake extends Mechanism{
 		m_intakeArm.set(false);
 		m_intakeWheels.set(0.0);
 	}
+
+	public void setIntake(boolean a){
+		if (a == true){
+			StartIntake();
+		} else{
+			StopIntake();
+		}
+	}
 }
