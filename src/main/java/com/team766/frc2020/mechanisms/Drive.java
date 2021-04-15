@@ -35,7 +35,7 @@ public class Drive extends Mechanism {
 	public double getEncoderDistance(){
 		checkContextOwnership();
 		log("Left: "+m_leftEncoder.getDistance()+" Right: "+m_rightEncoder.getDistance());
-		return(m_leftEncoder.getDistance()+m_rightEncoder.getDistance());
+		return((m_leftEncoder.getDistance()+m_rightEncoder.getDistance())/2);
 	}
 	public void resetEncoders(){
 		checkContextOwnership();

@@ -25,7 +25,7 @@ public class OI extends Procedure {
 	}
 	
 	public void run(Context context) {
-		context.takeOwnership(Robot.drive);
+		context.takeOwnership(Robot.drive); //declare this when first using this mechanism, only declare checkContextOwnership after declaring this
 		context.takeOwnership(Robot.launcher);
 		context.takeOwnership(Robot.intake);
 		while (true) {
