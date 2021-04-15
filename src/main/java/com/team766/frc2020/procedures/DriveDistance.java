@@ -13,7 +13,7 @@ public class DriveDistance extends Procedure{
 			context.yield();
 			if (Robot.drive.getEncoderDistance() <= 40){
 				Robot.drive.setDrivePower(0.25,0.25);
-			} else if (Robot.drive.getEncoderDistance()<=41){
+			} else if (Robot.drive.getEncoderDistance()<=51){
 				Robot.drive.setDrivePower(0.1,0.1);
 			} else if (Robot.drive.getEncoderDistance()<=60){
 				Robot.drive.setDrivePower(0.01,0.01);
