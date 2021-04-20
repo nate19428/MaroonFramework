@@ -4,6 +4,8 @@ import com.team766.framework.AutonomousProcedure;
 import com.team766.frc2020.procedures.*;
 
 public enum AutonomousModes {
+	@AutonomousProcedure(procedureClass = FollowLine.class) 
+	FollowLine,
 	@AutonomousProcedure(procedureClass = TurnAngle.class) 
 	TurnAngle,
 	@AutonomousProcedure(procedureClass = DriveDistance.class) //takes class as like a parameter, creates instance and runs run procedure (in runnablewithcontext)
