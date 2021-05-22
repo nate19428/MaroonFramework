@@ -23,6 +23,7 @@ public class Robot extends MyRobot {
 	public static Launcher launcher;
 	public static Intake intake;
 	public static LineSensors lineSensors;
+	public static RobotPosition robotPosition;
 	
 	private WebServer m_webServer;
 	private AutonomousSelector m_autonSelector;
@@ -52,6 +53,7 @@ public class Robot extends MyRobot {
 		launcher = new Launcher();
 		intake = new Intake();
 		lineSensors = new LineSensors();
+		robotPosition = new RobotPosition();
 	}
 	
 	@Override

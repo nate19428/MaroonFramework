@@ -4,6 +4,10 @@ import com.team766.framework.AutonomousProcedure;
 import com.team766.frc2020.procedures.*;
 
 public enum AutonomousModes {
+	@AutonomousProcedure(procedureClass = DoNothing.class) 
+	DoNothing,
+	@AutonomousProcedure(procedureClass = GoToPoint.class) 
+	GoToPoint,
 	@AutonomousProcedure(procedureClass = FollowLine.class) 
 	FollowLine,
 	@AutonomousProcedure(procedureClass = TurnAngle.class) 

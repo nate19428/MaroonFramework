@@ -6,6 +6,7 @@ import com.team766.hal.SpeedController;
 import com.team766.hal.EncoderReader;
 import com.team766.hal.GyroReader;
 import com.team766.logging.Category;
+import com.team766.framework.Context;
 
 public class Drive extends Mechanism {
 	private SpeedController m_leftMotor; //Java runs through the contstructor and all the variables not in functions
@@ -50,5 +51,46 @@ public class Drive extends Mechanism {
 	public void resetGyro(){
 		checkContextOwnership();
 		m_gyro.reset();
+	}
+	public void turnAngle(double angle, Context context){
+		checkContextOwnership();
+		resetGyro();
+		if (angle<0){
+			while(getGyroAngle()>angle){
+				if (getGyroAngle()-angle>=15){
+					setDrivePower(0.25,0);
+				} else if (getGyroAngle()-angle>=4){
+					setDrivePower(0.1,0);
+				} else if (getGyroAngle()-angle>=0){
+					setDrivePower(0.01,0);
+				}
+				context.yield();
+			}
+		} else{
+			while(getGyroAngle()<angle){
+				if (angle-getGyroAngle()>=15){
+					setDrivePower(0,0.25);
+				} else if (angle-getGyroAngle()>=4){
+					setDrivePower(0,0.1);
+				} else if (angle-getGyroAngle()>=0){
+					setDrivePower(0,0.01);
+				}
+				context.yield();
+			}
+		}
+	}
+	public void DriveDistance(double distance, Context context){
+		checkContextOwnership();
+		resetEncoders();
+		while (getEncoderDistance() <= distance){
+			if (distance-getEncoderDistance() >= 20){
+				setDrivePower(0.25,0.25);
+			} else if (distance-getEncoderDistance()>=7){
+				setDrivePower(0.1,0.1);
+			} else if (distance-getEncoderDistance()>=0){
+				setDrivePower(0.01,0.01);
+			}
+			context.yield();
+		}
 	}
 }
