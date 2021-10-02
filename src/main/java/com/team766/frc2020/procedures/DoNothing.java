@@ -9,6 +9,7 @@ public class DoNothing extends Procedure {
 	public void run(Context context) {
 		context.takeOwnership(Robot.drive);
 		Robot.drive.turnAngle(-60, context);
+		Robot.drive.DriveDistance(70, context);
 	}
 	
 }
