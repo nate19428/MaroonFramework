@@ -18,8 +18,12 @@ import com.team766.web.WebServer;
 public class Robot extends MyRobot {
 	// Declare mechanisms here
 	
-	
-	private static OI m_oi;
+	public static Drive drive;
+	public static OI m_oi;
+	public static Launcher launcher;
+	public static Intake intake;
+	public static LineSensors lineSensors;
+	public static RobotPosition robotPosition;
 	
 	private WebServer m_webServer;
 	private AutonomousSelector m_autonSelector;
@@ -44,8 +48,12 @@ public class Robot extends MyRobot {
 	public void robotInit() {
 		// Initialize mechanisms here
 		
-		
+		drive = new Drive();
 		m_oi = new OI();
+		launcher = new Launcher();
+		intake = new Intake();
+		lineSensors = new LineSensors();
+		robotPosition = new RobotPosition();
 	}
 	
 	@Override
