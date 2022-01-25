@@ -24,6 +24,7 @@ public class Robot extends MyRobot {
 	public static Intake intake;
 	public static LineSensors lineSensors;
 	public static RobotPosition robotPosition;
+	public static LimeLight limelight;
 	
 	private WebServer m_webServer;
 	private AutonomousSelector m_autonSelector;
@@ -54,6 +55,7 @@ public class Robot extends MyRobot {
 		intake = new Intake();
 		lineSensors = new LineSensors();
 		robotPosition = new RobotPosition();
+		limelight = new LimeLight();
 	}
 	
 	@Override

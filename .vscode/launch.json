@@ -6,7 +6,16 @@
       "name": "Start 3d simulation mode",
       "request": "launch",
       "mainClass": "com.team766.hal.simulator.RobotMain",
-      "args": ["-vr_connector"]
+      "args": [
+        "-vr_connector"
+      ]
+    },
+    {
+      "type": "java",
+      "name": "Start testing Limelight",
+      "request": "launch",
+      "mainClass": "com.team766.frc2020.procedures.LimelightTest",
+      "projectName": "ActualTutorialCode"
     }
   ]
 }
